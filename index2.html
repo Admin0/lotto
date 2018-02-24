@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>JavaScript - read JSON from URL</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	<div class="mypanel"></div>
+
+	<script>
+		$.ajax({
+			url: "http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
+			dataType: 'jsonp',
+			jsonpCallback: "loadlot",
+			success: function(data) {
+				console.log('성공 - ', data);
+			},
+			error: function(xhr) {
+				console.log('실패 - ', xhr);
+			}
+		});
+	</script>
+
+</body>
+
+</html>
