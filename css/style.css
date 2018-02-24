@@ -1,0 +1,53 @@
+.output {
+  width: 2em;
+  height: 2em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  solid silver;
+  color: #fff;
+  margin: .5em .25em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.output.c1 {
+  background: #FDD835;
+  color: #212121;
+}
+
+.output.c2 {
+  background: #1976D2;
+}
+
+.output.c3 {
+  background: #D32F2F;
+}
+
+.output.c4 {
+  background: #616161;
+}
+
+.output.c5 {
+  background: #388E3C;
+}
+
+.output.match,
+[id^="output"] {
+  border: 3px solid #FF9800;
+}
+
+.output.match_b,
+#output6 {
+  border: 3px solid #9E9E9E;
+}
+
+#lottotable .win {
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+#lottotable > li:nth-of-type(5n) {
+  margin-bottom: 1em;
+}
