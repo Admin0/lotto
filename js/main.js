@@ -127,12 +127,11 @@ function count() {
 // }
 
 $.ajax({
-  url: "http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
+  url: "https://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
   dataType: 'jsonp',
   jsonpCallback: "loadlot",
-  success: function(data) {
-    console.log('성공 - ', data);
-    a = data;
+  success: function(a) {
+    console.log('성공 - ', a);
     $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
     //a.nums + a.bnum;
     a.nums[6] = a.bnum;
@@ -152,6 +151,7 @@ $.ajax({
         $('#output' + i).addClass("c5");
       }
     }
+    data=a;
   },
   error: function(xhr) {
     console.log('실패 - ', xhr);
