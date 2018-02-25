@@ -127,7 +127,7 @@ function count() {
 // }
 
 $.ajax({
-  url: "https://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
+  url: "http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
   dataType: 'jsonp',
   jsonpCallback: "loadlot",
   success: function(a) {
