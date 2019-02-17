@@ -126,34 +126,28 @@ function count() {
 //   data = a;
 // }
 
-$.ajax({
-  url: "http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot",
-  dataType: 'jsonp',
-  jsonpCallback: "loadlot",
-  success: function(a) {
-    console.log('성공 - ', a);
-    $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
-    //a.nums + a.bnum;
-    a.nums[6] = a.bnum;
-    for (i = 0; i < 7; i++) {
-      $('#output' + i).text(a.nums[i]);
-    }
-    for (i = 0; i < 7; i++) {
-      if (a.nums[i] <= 10) {
-        $('#output' + i).addClass("c1");
-      } else if (a.nums[i] <= 20) {
-        $('#output' + i).addClass("c2");
-      } else if (a.nums[i] <= 30) {
-        $('#output' + i).addClass("c3");
-      } else if (a.nums[i] <= 40) {
-        $('#output' + i).addClass("c4");
-      } else {
-        $('#output' + i).addClass("c5");
-      }
-    }
-    data=a;
-  },
-  error: function(xhr) {
-    console.log('실패 - ', xhr);
+$.get("https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24 / 7 - 1717), function(a) {
+  console.log('성공 - ', a);
+  $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
+  //a.nums + a.bnum;
+  a.nums[6] = a.bnum;
+  for (i = 0; i < 7; i++) {
+    $('#output' + i).text(a.nums[i]);
   }
+  for (i = 0; i < 7; i++) {
+    if (a.nums[i] <= 10) {
+      $('#output' + i).addClass("c1");
+    } else if (a.nums[i] <= 20) {
+      $('#output' + i).addClass("c2");
+    } else if (a.nums[i] <= 30) {
+      $('#output' + i).addClass("c3");
+    } else if (a.nums[i] <= 40) {
+      $('#output' + i).addClass("c4");
+    } else {
+      $('#output' + i).addClass("c5");
+    }
+  }
+  data = a;
+}).error(function(xhr) {
+  console.log('실패 - ', xhr);
 });
