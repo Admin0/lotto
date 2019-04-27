@@ -5,7 +5,7 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39552694-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
+		window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
@@ -23,97 +23,33 @@
 	<script src="js/main.js" type="text/javascript"></script>
 </head>
 
-<body><!-- 주의: HTML 모드를 끄면 문자열 "&"이 다른 문자값으로 치환되어 기능이 정상적으로 작동하지 않으므로 백업해두고 할 것. -->
+<body>
+	<!-- 주의: HTML 모드를 끄면 문자열 "&"이 다른 문자값으로 치환되어 기능이 정상적으로 작동하지 않으므로 백업해두고 할 것. -->
 
 
-<h2>나눔로또6/45 번호 생성</h2>
-<p>나눔로또6/45의 예상 추첨 번호를 스마트하게 생성합니다.</p>
+	<h2>나눔로또6/45 번호 생성</h2>
+	<p>나눔로또6/45의 예상 추첨 번호를 스마트하게 생성합니다.</p>
 
-<p><strike>주의: 최적화를 발로해서 아래의 숫자 입력칸에 세자리 수를 쓰면 컴 멈춤.</strike></p>
-<p>최적화 완료! 신난다! 마구 숫자를 뽑아보자!</p>
-<p>
-	<input type="text" id="inputnum" value="100" size="2">번 <input type="button" value="자동 생성" onclick="count()">
-</p>
-<ol id="lottotable"></ol>
+	<p><strike>주의: 최적화를 발로해서 아래의 숫자 입력칸에 세자리 수를 쓰면 컴 멈춤.</strike></p>
+	<p>최적화 완료! 신난다! 마구 숫자를 뽑아보자!</p>
+	<p>
+		<input type="text" id="inputnum" value="100" size="2">번 <input type="button" value="자동 생성" onclick="count()">
+	</p>
+	<ol id="lottotable"></ol>
 
-<h2 id="lottok">loading...</h2>
-<div class="output" id="output0"></div>
-<div class="output" id="output1"></div>
-<div class="output" id="output2"></div>
-<div class="output" id="output3"></div>
-<div class="output" id="output4"></div>
-<div class="output" id="output5"></div>
-<div class="output" style="box-shadow:none; color:#000;">+</div>
-<div class="output" id="output6"></div>
+	<section id="winner" class="shadow">
+		<h2 id="lottok">loading...</h2>
+		<div class="output" id="output0"></div>
+		<div class="output" id="output1"></div>
+		<div class="output" id="output2"></div>
+		<div class="output" id="output3"></div>
+		<div class="output" id="output4"></div>
+		<div class="output" id="output5"></div>
+		<div class="output" style="box-shadow:none; color:#000;">+</div>
+		<div class="output" id="output6"></div>
+	</section>
 
-
-<style>
-.output {
-  width: 2em;
-  height: 2em;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  solid silver;
-  color: #fff;
-  margin: .5em .25em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 3px solid transparent;
-}
-
-.output.c1 {
-  background: #FDD835;
-  color: #212121;
-}
-
-.output.c2 {
-  background: #1976D2;
-}
-
-.output.c3 {
-  background: #D32F2F;
-}
-
-.output.c4 {
-  background: #616161;
-}
-
-.output.c5 {
-  background: #388E3C;
-}
-
-.output.match,
-[id^="output"] {
-  border: 3px solid #FF9800;
-}
-
-.output.match_b,
-#output6 {
-  border: 3px solid #9E9E9E;
-}
-
-#lottotable .win {
-  margin-left: 1em;
-  font-weight: bold;
-}
-
-#lottotable > li:nth-of-type(5n) {
-  margin-bottom: 1em;
-}
-</style>
-
-<script defer="" type="text/javascript" src="http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot"></script>
-
-
-<!-- 주의: HTML 모드를 끄면 문자열 "&"이 다른 문자값으로 치환되어 기능이 정상적으로 작동하지 않으므로 백업해두고 할 것. -->
-
-<p></p>
-
-<h2>업데이트</h2>
-<p>2016. 06. 21. 병목 현상 제거. 당첨 여부 표시. 당첨 확률 계산.</p>
-<p>2011. 07. 29. 오류 수정.</p>
-<p>2011. 04. 29. 제작.</p>
+	<script defer="" type="text/javascript" src="http://lotto.kaisyu.com/api?method=get&amp;callback=loadlot"></script>
 
 </body>
 

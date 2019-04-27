@@ -1,3 +1,12 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR');
+
+body {
+  margin: auto;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 .output {
   width: 2em;
   height: 2em;
@@ -43,11 +52,55 @@
   border: 3px solid #9E9E9E;
 }
 
+#lottotable {
+  text-align: left;
+  column-width: 350px;
+  width: 100%;
+  position: absolute;
+  top: calc(50% + 100px);
+}
+
 #lottotable .win {
   margin-left: 1em;
   font-weight: bold;
 }
 
-#lottotable > li:nth-of-type(5n) {
+#lottotable>li:nth-of-type(5n) {
   margin-bottom: 1em;
+}
+
+#winner {
+  width: 600px;
+  height: 200px;
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 300px);
+}
+
+.shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+  border-radius: 3px;
+  background: #fff;
+}
+
+.shadow-right {
+  box-shadow: 2px 0 6px 0 rgba(60, 64, 67, .15);
+}
+
+.shadow-bottom {
+  box-shadow: 0 2px 6px 0 rgba(60, 64, 67, .15);
+}
+
+.shadow-top-inset {
+  box-shadow: inset 0 7px 6px -5px rgba(60, 64, 67, .15);
+}
+
+.shadow-bottom-inset {
+  box-shadow: inset 0 -7px 6px -5px rgba(60, 64, 67, .15);
+}
+
+.shadow-top-inset.shadow-bottom-inset {
+  box-shadow: inset 0 7px 6px -5px rgba(60, 64, 67, .15), inset 0 -7px 6px -5px rgba(60, 64, 67, .15);
 }
