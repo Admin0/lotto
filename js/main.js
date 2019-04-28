@@ -23,6 +23,7 @@ function count() {
 
   (function engine(i) {
     setTimeout(function() {
+      var list_length = ($('#lottotable li').length + 1);
       var list = "";
       var val = [
         [0, 0], //[번호, 당첨여부]
@@ -39,23 +40,27 @@ function count() {
         val[j][0] = dice(1, 45 - j, 0);
         for (l = 0; l < j; l++) {
           if (val[j][0] == val[l][0]) {
-            val[l][0]++;
+            val[j][0]++;
           }
         }
+        // console.log("No." + (list_length) + ": " + val);
         for (m = 0; m < 6; m++) {
           if (val[j][0] == data.nums[m]) {
             val[j][1] = 1;
             match++;
           }
         }
+        // console.log("No." + (list_length) + ": " + val);
         if (val[j][0] == data.bnum) {
           val[j][1] = 2;
           match_b = 1;
         }
       }
-      // console.log("before: "+val);
+      // console.log("before sort: "+val);
       val.sort(numberSort);
-      // console.log("after : "+val);
+      // console.log("after sort: "+val);
+
+
       for (j = 0; j < 6; j++) {
         function setColorClass() {
           if (val[j][0] <= 10) {
@@ -108,7 +113,6 @@ function count() {
         win5++;
         console.log('win5');
       }
-      var list_length = ($('#lottotable li').length + 1);
       $('#stats').html(
         '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
         ' | 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +

@@ -71,11 +71,16 @@ body {
 }
 
 #lottotable li {
+  text-align: center;
   flex: auto;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); */
-  margin: 1em;
+  margin: 0;
   margin-left: 3em;
   padding: .5em .75em;
+}
+
+#lottotable>li:nth-of-type(100n) {
+  margin-bottom: 3em;
 }
 
 .win {
@@ -135,10 +140,6 @@ body {
   content: "5등";
 }
 
-#lottotable>li:nth-of-type(5n) {
-  margin-bottom: 1em;
-}
-
 #winner {
   width: 600px;
   height: 200px;
@@ -147,6 +148,21 @@ body {
   position: absolute;
   top: calc(50% - 100px);
   left: calc(50% - 300px);
+  transition: .3s, top 0s;
+}
+#winner h2{margin-top: 1.5em;}
+#winner.pinned {
+  font-size: 12px;
+  width: 100%;
+  left: 0;
+  height: 75px;
+  position: fixed;
+  top: 0;
+}
+
+#winner.pinned h2 {
+  font-size: 12px;
+  margin: .5em 0 0;
 }
 
 .shadow {
