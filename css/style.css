@@ -65,15 +65,17 @@ body {
 }
 
 #lottotable {
-  padding-left: 0;
+  padding: 1em 0 0 0;
+  margin: 0;
   font-size: 12px;
   text-align: left;
   width: 100%;
   position: absolute;
   display: flex;
   flex-flow: wrap;
-  top: calc(50% + 200px);
+  top: calc(50% + 225px);
   counter-reset: li;
+  overflow: hidden;
 }
 
 #lottotable li {
@@ -81,9 +83,9 @@ body {
   text-align: center;
   flex: auto;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); */
-  margin: 0;
+  margin: .5em 0;
   margin-left: 3em;
-  padding: .5em .75em;
+  padding: 0;
   position: relative;
   max-width: 22.5em;
   transition: .25s;
@@ -287,6 +289,6 @@ body {
   #winner.pinned {}
 
   #lottotable {
-    font-size: 6px;
+    font-size: 3px;
   }
 }
