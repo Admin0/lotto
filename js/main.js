@@ -67,7 +67,7 @@ function count() {
           } else if (val[j][0] <= 40) {
             num_class = "c4 ";
           } else {
-            num_class = "c4 ";
+            num_class = "c5 ";
           }
           if (val[j][1] == 1) {
             num_class += "match ";
