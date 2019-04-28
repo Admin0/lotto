@@ -84,7 +84,7 @@ body {
   flex: auto;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); */
   margin: .5em 0;
-  margin-left: 3em;
+  margin-left: 2em;
   padding: 0;
   position: relative;
   max-width: 22.5em;
@@ -95,8 +95,8 @@ body {
   content: counter(li);
   counter-increment: li;
   position: absolute;
-  top: 18px;
-  left: -18px;
+  top: 1em;
+  left: -1em;
 }
 
 #lottotable li:nth-of-type(100n) {
