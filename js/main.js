@@ -79,25 +79,46 @@ function count() {
         var num_class;
         setColorClass();
         list += '<div class="output ' + num_class + '">' + val[j][0] + '</div>';
-        console.log(match);
+        // console.log(match);
       }
+      var win_class;
       if (match == 6) {
-        list += "<span class='win w1'>1등!!!!!</span>";
+        win_class = 'win win1';
+        // list += "<span class='win1'>1등!!!!!</span>";
         win1++;
+        console.log('win1');
       } else if (match == 5 && match_b == 1) {
-        list += "<span class='win w1'>2등!!!!</span>";
+        win_class = 'win win2';
+        // list += "<span class='win2'>2등!!!!</span>";
         win2++;
+        console.log('win2');
       } else if (match == 5) {
-        list += "<span class='win w1'>3등!!!</span>";
+        win_class = 'win win3';
+        // list += "<span class='win3'>3등!!!</span>";
         win3++;
+        console.log('win3');
       } else if (match == 4) {
-        list += "<span class='win w1'>4등!</span>";
+        win_class = 'win win4';
+        // list += "<span class='win4'>4등!</span>";
         win4++;
+        console.log('win4');
       } else if (match == 3) {
-        list += "<span class='win w1'>5등</span>";
+        win_class = 'win win5';
+        // list += "<span class='win5'>5등</span>";
         win5++;
+        console.log('win5');
       }
-      $('#lottotable').append('<li>' + list + '</li>');
+      var list_length = ($('#lottotable li').length + 1);
+      $('#stats').html(
+        '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' | 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' | 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' | 4등:' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' | 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
+        " | 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
+        '<br><progress style="width:600px;" value="' + list_length + '" max="' + totalbuy + '"></progress>'
+      );
+      $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
       // break;
       if (--i) engine(i);
     }, 0)
@@ -108,7 +129,7 @@ function count() {
   // }
   var totalmatch = (win1 + win2 + win3 + win4 + win5)
   var totalbuy = $('#inputnum').val();
-  $('#lottotable').prepend("<h3>결과</h3><p>1등: " + win1 + "번 | 2등: " + win2 + "번 | 3등: " + win3 + "번 | 4등: " + win4 + "번 | 5등: " + win5 + "번</p>" + "<p>총 당첨률 " + totalmatch + " / " + totalbuy + " = " + (totalmatch / totalbuy * 100).toFixed(2) + "%</p>");
+  // $('#lottotable').prepend("<h3>결과</h3><p>1등: " + win1 + "번 | 2등: " + win2 + "번 | 3등: " + win3 + "번 | 4등: " + win4 + "번 | 5등: " + win5 + "번</p>" + "<p>총 당첨률 " + totalmatch + " / " + totalbuy + " = " + (totalmatch / totalbuy * 100).toFixed(2) + "%</p>");
 }
 
 function loadlot(a) {

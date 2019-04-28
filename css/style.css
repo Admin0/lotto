@@ -52,17 +52,87 @@ body {
   border: 3px solid #9E9E9E;
 }
 
-#lottotable {
-  text-align: left;
-  column-width: 350px;
+#stats {
+  text-align: center;
   width: 100%;
   position: absolute;
-  top: calc(50% + 100px);
+  top: calc(50% + 160px);
 }
 
-#lottotable .win {
-  margin-left: 1em;
+#lottotable {
+  padding-left: 0;
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-flow: wrap;
+  top: calc(50% + 200px);
+}
+
+#lottotable li {
+  flex: auto;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); */
+  margin: 1em;
+  margin-left: 3em;
+  padding: .5em .75em;
+}
+
+.win {
+  position: relative;
   font-weight: bold;
+  border-right: 5px;
+}
+
+.win1 {
+  background: gold;
+  box-shadow: 0 2px 5px gold;
+}
+
+.win2 {
+  background: gold;
+  box-shadow: 0 2px 5px gold;
+}
+
+.win3 {
+  background: gold;
+  box-shadow: 0 2px 5px gold;
+}
+
+.win4 {
+  background: silver;
+  box-shadow: 0 2px 5px silver;
+}
+
+.win5 {
+  background: #cd7f32;
+  box-shadow: 0 2px 5px #cd7f32;
+}
+
+.win:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.win1:before {
+  content: "1등";
+}
+
+.win2:before {
+  content: "2등";
+}
+
+.win3:before {
+  content: "3등";
+}
+
+.win4:before {
+  content: "4등";
+}
+
+.win5:before {
+  content: "5등";
 }
 
 #lottotable>li:nth-of-type(5n) {
@@ -103,4 +173,35 @@ body {
 
 .shadow-top-inset.shadow-bottom-inset {
   box-shadow: inset 0 7px 6px -5px rgba(60, 64, 67, .15), inset 0 -7px 6px -5px rgba(60, 64, 67, .15);
+}
+
+.translation {
+  /* color: rgba(0, 0, 0, .38); */
+  opacity: .65;
+  font-size: .75em;
+  font-style: italic;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.key {
+  transition: .25s;
+  text-shadow: 0 -1px #e0e0e0;
+  box-shadow: 0 6px #e0e0e0;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin: -.5em .25em .25em;
+  padding: .25em .75em;
+  background: white;
+  color: #212121;
+  font-size: .75em;
+  vertical-align: top;
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.key:active,
+.key.on {
+  box-shadow: 0 0px #e0e0e0;
+  margin: 0 .25em -.25em;
 }
