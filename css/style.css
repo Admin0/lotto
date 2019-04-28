@@ -87,7 +87,7 @@ body {
   margin-left: 2em;
   padding: 0;
   position: relative;
-  max-width: 22.5em;
+  max-width: 30em;
   transition: .25s;
 }
 
@@ -289,6 +289,6 @@ body {
   #winner.pinned {}
 
   #lottotable {
-    font-size: 3px;
+    font-size: 6px;
   }
 }
