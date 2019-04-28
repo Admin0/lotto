@@ -117,10 +117,10 @@ function count() {
         '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
         ' | 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
         ' | 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' | 4등:' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' | 4등: ' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
         ' | 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
         " | 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
-        '<br><progress style="width:600px;" value="' + list_length + '" max="' + totalbuy + '"></progress>'
+        '<br><progress value="' + list_length + '" max="' + totalbuy + '"></progress>'
       );
       $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
       // break;
