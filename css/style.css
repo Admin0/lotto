@@ -96,7 +96,7 @@ body {
   counter-increment: li;
   position: absolute;
   top: 1em;
-  left: -1em;
+  right: 100%;
 }
 
 #lottotable li:nth-of-type(100n) {
