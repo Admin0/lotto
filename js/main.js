@@ -37,12 +37,24 @@ function count() {
       var match_b = 0; //보너스숫자가 적중했나
 
       for (j = 0; j < 6; j++) {
-        val[j][0] = dice(1, 45 - j, 0);
-        for (l = 0; l < j; l++) {
-          if (val[j][0] == val[l][0]) {
-            val[j][0]++;
+        // val[j][0] = dice(1, 45, 0);
+
+        function roll(n) {
+          if (j == 0) {
+            val[j][0] = n;
+          } else {
+            for (l = 0; l < j; l++) {
+              // console.log(n);
+              if (n == val[l][0]) {
+                roll(dice(1, 45, 0));
+              } else {
+                val[j][0] = n;
+              }
+            }
           }
         }
+        roll(dice(1, 45, 0));
+
         // console.log("No." + (list_length) + ": " + val);
         for (m = 0; m < 6; m++) {
           if (val[j][0] == data.nums[m]) {
@@ -89,27 +101,22 @@ function count() {
       var win_class;
       if (match == 6) {
         win_class = 'win win1';
-        // list += "<span class='win1'>1등!!!!!</span>";
         win1++;
         console.log('win1');
       } else if (match == 5 && match_b == 1) {
         win_class = 'win win2';
-        // list += "<span class='win2'>2등!!!!</span>";
         win2++;
         console.log('win2');
       } else if (match == 5) {
         win_class = 'win win3';
-        // list += "<span class='win3'>3등!!!</span>";
         win3++;
         console.log('win3');
       } else if (match == 4) {
         win_class = 'win win4';
-        // list += "<span class='win4'>4등!</span>";
         win4++;
         console.log('win4');
       } else if (match == 3) {
         win_class = 'win win5';
-        // list += "<span class='win5'>5등</span>";
         win5++;
         console.log('win5');
       }
@@ -128,12 +135,8 @@ function count() {
     }, 0)
   })($('#inputnum').val());
 
-  // for (k = 0; k < $('#inputnum').val(); k++) {
-  //
-  // }
   var totalmatch = (win1 + win2 + win3 + win4 + win5)
   var totalbuy = $('#inputnum').val();
-  // $('#lottotable').prepend("<h3>결과</h3><p>1등: " + win1 + "번 | 2등: " + win2 + "번 | 3등: " + win3 + "번 | 4등: " + win4 + "번 | 5등: " + win5 + "번</p>" + "<p>총 당첨률 " + totalmatch + " / " + totalbuy + " = " + (totalmatch / totalbuy * 100).toFixed(2) + "%</p>");
 }
 
 function loadlot(a) {
