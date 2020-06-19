@@ -1,3 +1,7 @@
+if (location.protocol !== 'http:') {
+    location.replace('http:${location.href.substring(location.protocol.length)}');
+}
+
 var data;
 
 function dice(n, s, b) {
