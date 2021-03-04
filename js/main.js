@@ -1,4 +1,4 @@
-if (location.protocol !== 'http:') location.protocol = 'http:';
+// if (location.protocol !== 'http:') location.protocol = 'http:';
 
 var data;
 
@@ -163,3 +163,13 @@ function loadlot(a) {
   }
   data = a;
 }
+
+$(function() {
+  $.ajax({
+    crossOrigin: true,
+    url: "http://ip.jsontest.com/",
+    success: function(data) {
+      console.log(data);
+    }
+  });
+});
