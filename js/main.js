@@ -164,12 +164,12 @@ function loadlot(a) {
   data = a;
 }
 
-$(function() {
-  $.ajax({
-    crossOrigin: true,
-    url: "http://ip.jsontest.com/",
-    success: function(data) {
-      console.log(data);
-    }
-  });
-});
+// $(function() {
+//   $.ajax({
+//     crossOrigin: true,
+//     url: "http://ip.jsontest.com/",
+//     success: function(data) {
+//       console.log(data);
+//     }
+//   });
+// });
