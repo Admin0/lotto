@@ -1,4 +1,4 @@
-// if (location.protocol !== 'http:') location.protocol = 'http:';
+if (location.protocol !== 'http:') location.protocol = 'http:';
 
 var data;
 
