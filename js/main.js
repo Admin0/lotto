@@ -1,4 +1,4 @@
-if (location.protocol !== 'http:') location.protocol = 'http:';
+// if (location.protocol !== 'http:') location.protocol = 'http:';
 
 var data;
 
@@ -141,10 +141,39 @@ function count() {
   var totalbuy = $('#inputnum').val();
 }
 
-function loadlot(a) {
-  $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
-  //a.nums + a.bnum;
-  a.nums[6] = a.bnum;
+// function loadlot(a) {
+//   $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
+//   //a.nums + a.bnum;
+//   a.nums[6] = a.bnum;
+//   for (i = 0; i < 7; i++) {
+//     $('#output' + i).text(a.nums[i]);
+//   }
+//   for (i = 0; i < 7; i++) {
+//     if (a.nums[i] <= 10) {
+//       $('#output' + i).addClass("c1");
+//     } else if (a.nums[i] <= 20) {
+//       $('#output' + i).addClass("c2");
+//     } else if (a.nums[i] <= 30) {
+//       $('#output' + i).addClass("c3");
+//     } else if (a.nums[i] <= 40) {
+//       $('#output' + i).addClass("c4");
+//     } else {
+//       $('#output' + i).addClass("c5");
+//     }
+//   }
+//   data = a;
+// }
+
+function loadlot_2(a) {
+  $("#lottok").html('제 ' + a.feed.entry[0].gsx$drwno.$t + '회차 당첨 결과 (' + a.feed.entry[0].gsx$drwnodate.$t + ')'); // + '<br/>' +
+  a.nums = Array(7);
+  a.nums[0] = a.feed.entry[0].gsx$drwtno1.$t;
+  a.nums[1] = a.feed.entry[0].gsx$drwtno2.$t;
+  a.nums[2] = a.feed.entry[0].gsx$drwtno3.$t;
+  a.nums[3] = a.feed.entry[0].gsx$drwtno4.$t;
+  a.nums[4] = a.feed.entry[0].gsx$drwtno5.$t;
+  a.nums[5] = a.feed.entry[0].gsx$drwtno6.$t;
+  a.nums[6] = a.feed.entry[0].gsx$bnusno.$t;
   for (i = 0; i < 7; i++) {
     $('#output' + i).text(a.nums[i]);
   }
@@ -163,13 +192,3 @@ function loadlot(a) {
   }
   data = a;
 }
-
-// $(function() {
-//   $.ajax({
-//     crossOrigin: true,
-//     url: "http://ip.jsontest.com/",
-//     success: function(data) {
-//       console.log(data);
-//     }
-//   });
-// });
