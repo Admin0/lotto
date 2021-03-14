@@ -4,7 +4,7 @@ var data;
 
 function dice(n, s, b) {
   var out = 0;
-  for (i = 0; i < n; i++) {
+  for (var i = 0; i < n; i++) {
     out += Math.ceil(s * Math.random());
   }
   return out + b;
@@ -160,13 +160,17 @@ function count() {
         'value': list_length,
         'max': totalbuy
       });
+      if ((totalbuy - i) % 300 == 0) {
+        console.log("ad inserted");
+        $('#lottotable').append('<div class="ad"><!-- LOGE 반응형 --><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-8175591114279139"     data-ad-slot="6892768087"     data-ad-format="auto"     data-full-width-responsive="true"></ins><script>     (adsbygoogle = window.adsbygoogle || []).push({});</script></div>')
+      }
       $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
       // break;
       if (--i) engine(i);
     }, 0)
   })($('#inputnum').val());
 
-  var totalmatch = winall;
+  // var totalmatch = winall;
 }
 
 function numberWithCommas(x) {
