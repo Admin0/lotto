@@ -43,7 +43,65 @@
 
 	<hr style="    max-width: 300px;    margin: 3em auto;    border-color: #fefefe;">
 
-	<div id="stats"></div>
+	<div id="stats" class="hide">
+		<table colspan="0">
+			<thead>
+				<tr>
+					<th>순위</th>
+					<th>1게임당 당첨금액</th>
+					<th>당첨 수</th>
+					<th>내 누적 당첨금</th>
+					<th>당첨 기준</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1등</td>
+					<td class="right tint stat_money_1"></td>
+					<td class="right win1">0 <span class='translation'>(0.00%)</span> </td>
+					<td class="right money1">0 원</td>
+					<td>당첨번호 6개 숫자일치</td>
+				</tr>
+				<tr>
+					<td>2등</td>
+					<td class="right tint stat_money_2"></td>
+					<td class="right win2">0 <span class='translation'>(0.00%)</span> </td>
+					<td class="right money2">0 원</td>
+					<td>당첨번호 5개 숫자일치 <br> + 보너스 숫자일치</td>
+				</tr>
+				<tr>
+					<td>3등</td>
+					<td class="right tint stat_money_3"></td>
+					<td class="right win3">0 <span class='translation'>(0.00%)</span> </td>
+					<td class="right money3">0 원</td>
+					<td>당첨번호 5개 숫자일치</td>
+				</tr>
+				<tr>
+					<td>4등</td>
+					<td class="right tint">50,000 원</td>
+					<td class="right win4">0 <span class='translation'>(0.00%)</span> </td>
+					<td class="right money4">0 원</td>
+					<td>당첨번호 4개 숫자일치</td>
+				</tr>
+				<tr>
+					<td>5등</td>
+					<td class="right tint">5,000 원</td>
+					<td class="right win5">0 <span class='translation'>(0.00%)</span> </td>
+					<td class="right money5">0 원</td>
+					<td>당첨번호 3개 숫자일치</td>
+				</tr>
+				<tr>
+					<td>총</td>
+					<td>-</td>
+					<td class="right winall"></td>
+					<td class="right moneyall"></td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+		<p> <progress value="" max=""></progress></p>
+		<p class="msg">수학을 포기한 자들의 세금. 언제까지 납부할 것인가?</p>
+	</div>
 
 	<ol id="lottotable"></ol>
 

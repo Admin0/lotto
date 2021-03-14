@@ -42,6 +42,9 @@ h1 {
   font-weight: 400;
 }
 
+/******************************************************************************/
+/*                                   #output                                  */
+/******************************************************************************/
 .output {
   width: 2em;
   height: 2em;
@@ -106,7 +109,7 @@ h1 {
 }
 
 #lottotable {
-  padding: 1em 0 3em 0;
+  padding: 1em 0 6em 0;
   margin: 0;
   font-size: 12px;
   text-align: left;
@@ -144,57 +147,57 @@ h1 {
   margin-bottom: 3em;
 }
 
-.win {
+#lottotable .win {
   font-weight: bold;
   border-radius: .5em;
 }
 
-.win1 {
+#lottotable .win1 {
   background: #ffeb3b;
   box-shadow: 0 2px 5px #b39700;
 }
 
-.win1:hover {
+#lottotable .win1:hover {
   box-shadow: 0 5px 7px #b39700;
 }
 
-.win2 {
+#lottotable .win2 {
   background: #ffeb3b;
   box-shadow: 0 2px 5px #b39700;
 }
 
-.win2:hover {
+#lottotable .win2:hover {
   box-shadow: 0 5px 7px #b39700;
 }
 
-.win3 {
+#lottotable .win3 {
   background: #ffeb3b;
   box-shadow: 0 2px 5px #b39700;
 }
 
-.win3:hover {
+#lottotable .win3:hover {
   box-shadow: 0 5px 7px #b39700;
 }
 
-.win4 {
+#lottotable .win4 {
   background: #e0e0e0;
   box-shadow: 0 2px 5px gray;
 }
 
-.win4:hover {
+#lottotable .win4:hover {
   box-shadow: 0 5px 7px gray;
 }
 
-.win5 {
+#lottotable .win5 {
   background: #ffd180;
   box-shadow: 0 2px 5px #905923;
 }
 
-.win5:hover {
+#lottotable .win5:hover {
   box-shadow: 0 5px 7px #905923;
 }
 
-.win:after {
+#lottotable .win:after {
   color: #7b1fa2;
   position: absolute;
   justify-content: center;
@@ -210,23 +213,23 @@ h1 {
   transform: rotate(-15deg);
 }
 
-.win1:after {
+#lottotable .win1:after {
   content: "1st";
 }
 
-.win2:after {
+#lottotable .win2:after {
   content: "2nd";
 }
 
-.win3:after {
+#lottotable .win3:after {
   content: "3rd";
 }
 
-.win4:after {
+#lottotable .win4:after {
   content: "4th";
 }
 
-.win5:after {
+#lottotable .win5:after {
   content: "5th";
 }
 
@@ -303,6 +306,8 @@ h1 {
 #winner.pinned .win_container {
   transform: scale(0.5);
   transform-origin: top;
+  width: 200%;
+  margin-left: -50%;
 }
 
 #winner.pinned .output {
@@ -356,7 +361,6 @@ h1 {
 }
 
 .key {
-  transition: .25s;
   text-shadow: 0 -1px #e0e0e0;
   box-shadow: 0 6px #e0e0e0;
   border: 1px solid #e0e0e0;
@@ -374,12 +378,45 @@ h1 {
 
 .key:active,
 .key.on {
+  transition: .25s;
   box-shadow: 0 0px #e0e0e0;
   margin: 0 .25em -.25em;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   #stats                                  */
+/* -------------------------------------------------------------------------- */
+#stats table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: auto;
+  font-size: 1em;
+}
+
+#stats table th, #stats table tr:nth-of-type(6) {
+  font-weight: normal;
+  background: #f0f0f0;
+}
+
+#stats table th, #stats table td {
+  border: 1px solid silver;
+  padding: 1em 2em;
+}
+
+#stats table tr:nth-of-type(2) td {
+  padding: 0.3em 2em;
+}
+
+#stats table th:nth-of-type(3) {
+  min-width: 4em;
+}
+
+#stats table th:nth-of-type(4) {
+  min-width: 8em;
+}
+
 /* ------------------------------------------------------------------- */
-/* ***** footer ***** */
+/* *****                         footer                          ***** */
 /* ------------------------------------------------------------------- */
 footer {
   width: 100%;
@@ -388,6 +425,9 @@ footer {
   background: #fff;
 }
 
+/* ------------------------------------------------------------------- */
+/* ***** sub funtion ***** */
+/* ------------------------------------------------------------------- */
 .shadow-right {
   box-shadow: 2px 0 6px 0 rgba(60, 64, 67, .15);
 }
@@ -412,10 +452,35 @@ footer {
   box-shadow: inset 0 7px 6px -5px rgba(60, 64, 67, .15), inset 0 -7px 6px -5px rgba(60, 64, 67, .15);
 }
 
-/* ***** mobile ***** */
-@media handheld, only screen and (max-device-width:480px), only screen and (max-device-width:320px), screen and (max-width:600px) {
+.right {
+  text-align: right;
+}
+
+.tint {
+  color: #c79100;
+}
+
+.hide {
+  opacity: 0;
+  transition: .25s;
+}
+
+.show {
+  opacity: 1;
+  transition: .25s;
+}
+
+/* ------------------------------------------------------------------- */
+/* *****                         mobile                          ***** */
+/* ------------------------------------------------------------------- */
+@media handheld, only screen and (max-device-width:480px), only screen and (max-device-width:320px), screen and (max-width:800px) {
   body {
     font-size: 12px;
+  }
+
+  #stats table th:nth-of-type(5),
+  #stats table td:nth-of-type(5) {
+    display: none;
   }
 
   #winner {

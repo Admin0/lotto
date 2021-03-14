@@ -12,6 +12,8 @@ function dice(n, s, b) {
 
 function count() {
   // console.log($('#inputnum').val());
+  $('#stats').removeClass('hide').addClass('show');
+  var totalbuy = $('#inputnum').val();
 
   var numberSort = function(a, b) {
     return a[0] - b[0];
@@ -22,6 +24,10 @@ function count() {
   var win3 = 0;
   var win4 = 0;
   var win5 = 0;
+
+  $('#stats .stat_money_1').text(numberWithCommas(data.money_1win) + " 원");
+  $('#stats .stat_money_2').text(numberWithCommas(data.money_2win = Math.round(data.money_1win * data.many_1win * 125 / 750 / (data.money_sell / 1000 / 1357510))) + " 원");
+  $('#stats .stat_money_3').text(numberWithCommas(data.money_3win = Math.round(data.money_1win * data.many_1win * 125 / 750 / (data.money_sell / 1000 / 35724))) + " 원");
 
   (function engine(i) {
     setTimeout(function() {
@@ -122,58 +128,58 @@ function count() {
         win5++;
         console.log('win5');
       }
-      $('#stats').html(
-        '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' / 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' / 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' / 4등: ' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' / 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
-        " / 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
-        '<br><progress value="' + list_length + '" max="' + totalbuy + '"></progress>'
-      );
+
+      $('#stats .win1').html(win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>");
+      $('#stats .win2').html(win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>");
+      $('#stats .win3').html(win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>");
+      $('#stats .win4').html(win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>");
+      $('#stats .win5').html(win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>");
+
+      $('#stats .money1').html(numberWithCommas(win1 * data.money_1win) + " 원");
+      $('#stats .money2').html(numberWithCommas(win2 * data.money_2win) + " 원");
+      $('#stats .money3').html(numberWithCommas(win3 * data.money_3win) + " 원");
+      $('#stats .money4').html(numberWithCommas(win4 * 50000) + " 원");
+      $('#stats .money5').html(numberWithCommas(win5 * 5000) + " 원");
+
+      $('#stats .winall').html((winall = win1 + win2 + win3 + win4 + win5) + "<span class='translation'>(" + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%)</span>");
+      $('#stats .moneyall').html(numberWithCommas(moneyall = win1 * data.money_1win + win2 * data.money_2win + win3 * data.money_3win + win4 * 50000 + win5 * 5000) + " 원");
+
+      $('.msg').text("구매금액 " + numberWithCommas(totalbuy * 1000) + " 원 / 누적당첨금 " + numberWithCommas(moneyall) + " 원 / 수익률 " + (moneyall / (totalbuy * 1000) * 100 - 100).toFixed(1) + "%");
+
+      // $('#stats').html(
+      //   '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
+      //   ' / 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
+      //   ' / 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
+      //   ' / 4등: ' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
+      //   ' / 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
+      //   " / 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
+      //   '<br><progress value="' + list_length + '" max="' + totalbuy + '"></progress>'
+      // );
+
+      $('#stats progress').attr({
+        'value': list_length,
+        'max': totalbuy
+      });
       $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
       // break;
       if (--i) engine(i);
     }, 0)
   })($('#inputnum').val());
 
-  var totalmatch = (win1 + win2 + win3 + win4 + win5)
-  var totalbuy = $('#inputnum').val();
+  var totalmatch = winall;
 }
 
-// function loadlot(a) {
-//   $("#lottok").html('제 ' + a.gno + '회차 당첨 결과(' + a.gdate + ')'); // + '<br/>' +
-//   //a.nums + a.bnum;
-//   a.nums[6] = a.bnum;
-//   for (i = 0; i < 7; i++) {
-//     $('#output' + i).text(a.nums[i]);
-//   }
-//   for (i = 0; i < 7; i++) {
-//     if (a.nums[i] <= 10) {
-//       $('#output' + i).addClass("c1");
-//     } else if (a.nums[i] <= 20) {
-//       $('#output' + i).addClass("c2");
-//     } else if (a.nums[i] <= 30) {
-//       $('#output' + i).addClass("c3");
-//     } else if (a.nums[i] <= 40) {
-//       $('#output' + i).addClass("c4");
-//     } else {
-//       $('#output' + i).addClass("c5");
-//     }
-//   }
-//   data = a;
-// }
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function loadlot_2(a) {
-  $("#winner .lotto_round").text(a.feed.entry[0].gsx$drwno.$t + "회");
-  $("#winner .lotto_date").text(a.feed.entry[0].gsx$drwnodate.$t);
+  $("#winner .lotto_round").text(a.gno = a.feed.entry[0].gsx$drwno.$t + "회");
+  $("#winner .lotto_date").text(a.gdate = a.feed.entry[0].gsx$drwnodate.$t);
 
-  $("#winner .info_Totsellamnt").text(numberWithCommas(a.feed.entry[0].gsx$totsellamnt.$t));
-  $("#winner .info_Firstwinamnt").text(numberWithCommas(a.feed.entry[0].gsx$firstwinamnt.$t));
-  $("#winner .info_Firstprzwnerco").text(a.feed.entry[0].gsx$firstprzwnerco.$t);
+  $("#winner .info_Totsellamnt").text(numberWithCommas(a.money_sell = a.feed.entry[0].gsx$totsellamnt.$t));
+  $("#winner .info_Firstwinamnt").text(numberWithCommas(a.money_1win = a.feed.entry[0].gsx$firstwinamnt.$t));
+  $("#winner .info_Firstprzwnerco").text(a.many_1win = a.feed.entry[0].gsx$firstprzwnerco.$t);
 
   a.nums = Array(7);
   a.nums[0] = a.feed.entry[0].gsx$drwtno1.$t;
@@ -203,4 +209,5 @@ function loadlot_2(a) {
 }
 
 document.getElementById("year").innerHTML = new Date().getFullYear();
+
 context_menu();
