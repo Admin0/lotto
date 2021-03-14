@@ -65,7 +65,7 @@ function count() {
           }
         }
         // console.log("No." + (list_length) + ": " + val);
-        if (val[j][0] == data.bnum) {
+        if (val[j][0] == data.nums[6]) {
           val[j][1] = 2;
           match_b = 1;
         }
@@ -124,11 +124,11 @@ function count() {
       }
       $('#stats').html(
         '1등: ' + win1 + "<span class='translation'>(" + (win1 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' | 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' | 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' | 4등: ' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
-        ' | 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
-        " | 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
+        ' / 2등: ' + win2 + "<span class='translation'>(" + (win2 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' / 3등: ' + win3 + "<span class='translation'>(" + (win3 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' / 4등: ' + win4 + "<span class='translation'>(" + (win4 / list_length * 100).toFixed(2) + "%)</span>" +
+        ' / 5등: ' + win5 + "<span class='translation'>(" + (win5 / list_length * 100).toFixed(2) + "%)</span>" +
+        " / 총당첨율: " + ((win1 + win2 + win3 + win4 + win5) / list_length * 100).toFixed(2) + "%" +
         '<br><progress value="' + list_length + '" max="' + totalbuy + '"></progress>'
       );
       $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
@@ -163,9 +163,18 @@ function count() {
 //   }
 //   data = a;
 // }
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function loadlot_2(a) {
-  $("#lottok").html('제 ' + a.feed.entry[0].gsx$drwno.$t + '회차 당첨 결과 (' + a.feed.entry[0].gsx$drwnodate.$t + ')'); // + '<br/>' +
+  $("#winner .lotto_round").text(a.feed.entry[0].gsx$drwno.$t + "회");
+  $("#winner .lotto_date").text(a.feed.entry[0].gsx$drwnodate.$t);
+
+  $("#winner .info_Totsellamnt").text(numberWithCommas(a.feed.entry[0].gsx$totsellamnt.$t));
+  $("#winner .info_Firstwinamnt").text(numberWithCommas(a.feed.entry[0].gsx$firstwinamnt.$t));
+  $("#winner .info_Firstprzwnerco").text(a.feed.entry[0].gsx$firstprzwnerco.$t);
+
   a.nums = Array(7);
   a.nums[0] = a.feed.entry[0].gsx$drwtno1.$t;
   a.nums[1] = a.feed.entry[0].gsx$drwtno2.$t;
@@ -173,7 +182,7 @@ function loadlot_2(a) {
   a.nums[3] = a.feed.entry[0].gsx$drwtno4.$t;
   a.nums[4] = a.feed.entry[0].gsx$drwtno5.$t;
   a.nums[5] = a.feed.entry[0].gsx$drwtno6.$t;
-  a.nums[6] = a.feed.entry[0].gsx$bnusno.$t;
+  a.nums[6] = a.feed.entry[0].gsx$bnusno.$t; // bonus
   for (i = 0; i < 7; i++) {
     $('#output' + i).text(a.nums[i]);
   }

@@ -20,12 +20,12 @@
   min-width: 350px;
   transform: perspective(1000px) rotateX(15deg);
   margin-top: -2em;
+  text-align: left;
 }
 
 .context_menu {
   position: absolute;
-  min-width: 50px;
-  white-space: nowrap;
+  min-width: 50px;  white-space: nowrap;
   transform: none;
   margin-top: 0;
 }
@@ -51,6 +51,8 @@
   padding: .5em 1em .5em 1em;
   margin: 0;
   text-decoration: none;
+  align-items: center;
+  display: flex;
 }
 
 #context_menu>div>*:not(.disabled),
@@ -77,10 +79,11 @@
   opacity: 1;
 }
 
-#context_menu div i {
-  opacity: .75;
+#context_menu div .material-icons {
+  opacity: .5;
   width: 20px;
   font-size: 20px;
+  margin-right: .75em;
   /* margin-bottom: -2px; */
 }
 

@@ -4,9 +4,9 @@ $(document).ready(function() {
 });
 $(window).scroll(function() {
   if (winnerYOffset < pageYOffset) {
-    $('#winner').addClass('pinned');
+    $('#winner').addClass('pinned shadow');
   } else {
-    $('#winner').removeClass('pinned');
+    $('#winner').removeClass('pinned shadow');
   }
   // console.log($('#winner').offset().top < pageYOffset);
 });
