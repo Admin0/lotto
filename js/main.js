@@ -214,4 +214,8 @@ function loadlot_2(a) {
 
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
-context_menu();
+$(window).on('load', function() {
+  $("div#splash").fadeOut();
+  context_menu();
+  // console.log('splash removed: ' + (Date.now() - time.init0) + ' ms');
+})
