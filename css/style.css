@@ -298,6 +298,7 @@ h1 {
   position: fixed;
   top: 0;
   margin: 0;
+  z-index: 10;
 }
 
 #winner.pinned h2 {
@@ -507,6 +508,21 @@ footer {
   #lottotable {
     font-size: 6px;
   }
+
+  #lottotable .output {
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  #lottotable li {
+    margin: 0;
+    display: contents;
+  }
+
+  #lottotable .win .output {
+  background: #212121;
+  }
 }
 
 @media handheld, only screen and (max-width:600px) {
@@ -551,6 +567,17 @@ footer {
   }
 }
 
+@media handheld, only screen and (max-height:820px) {
+  #winner {
+    position: inherit;
+    margin-top: 6em;
+  }
+
+  .switch {
+    margin-top: 6em;
+  }
+}
+
 /******************************************************************************/
 /*                                     #ad                                    */
 /******************************************************************************/
@@ -582,6 +609,7 @@ div#splash.on {
   z-index: 6;
   opacity: 1;
 }
+
 div#splash span {
   margin: auto;
   transform: scale(.5);

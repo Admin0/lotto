@@ -160,7 +160,9 @@ function count() {
         'value': list_length,
         'max': totalbuy
       });
-      if ((totalbuy - i) % 300 == 0) {
+
+      var ad_interval = (is_mobile ? 200 : 300);
+      if ((totalbuy - i) % ad_interval == 0) {
         console.log("ad inserted");
         $('#lottotable').append('<div class="ad"><!-- LOGE 반응형 --><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-8175591114279139"     data-ad-slot="6892768087"     data-ad-format="auto"     data-full-width-responsive="true"></ins><script>     (adsbygoogle = window.adsbygoogle || []).push({});</script></div>')
       }
