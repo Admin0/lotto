@@ -38,7 +38,7 @@
 	<h1>LOGE</h1>
 	<p class="title"><span class="sub">- Random <span class="strong">#lottery</span> number <span class="strong">#generator</span> -</span></p>
 	<!-- <p class="title"><span class="sub">무작위 <span class="strong">#로또</span> 번호 생성 <span class="strong">#시뮬레이터</span></span></p> -->
-	
+
 	<section id="winner" class="">
 		<h2><span class="lotto_round">000회</span> 당첨결과</h2>
 		<p><span class="lotto_date">0000-00-00</span></p>
@@ -64,7 +64,7 @@
 
 	<p class="switch">
 		<hr style="    max-width: 300px;    margin-bottom: 3em;    border-color: #fefefe;">
-		무작위 로또 번호 생성 <input type="text" id="inputnum" value="500" size="2"> 번 <span class="key" onclick="count()">시작</span>
+		무작위 로또 번호 생성 <input type="text" id="inputnum" value="500" size="2"> 번 <span class="key" onclick="if (is_counting == false) {is_counting = true; count();}">시작</span>
 	</p>
 
 	<hr style="    max-width: 300px;    margin: 3em auto;    border-color: #fefefe;">

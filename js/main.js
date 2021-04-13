@@ -1,6 +1,7 @@
 const is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 var data;
+var is_counting = false;
 
 function dice(n, s, b) {
   var out = 0;
@@ -168,7 +169,11 @@ function count() {
       }
       $('#lottotable').append('<li class="' + win_class + '">' + list + '</li>');
       // break;
-      if (--i) engine(i);
+      if (--i) {
+        engine(i);
+      } else {
+        is_counting = false;
+      }
     }, 0)
   })($('#inputnum').val());
 

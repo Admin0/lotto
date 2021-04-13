@@ -92,7 +92,7 @@ h1 {
 
 .output.match,
 [id^="output"] {
-  border: 3px solid #8e0000;
+  border: 3px solid #ff8c00;
 }
 
 .output.match_b,
@@ -472,11 +472,14 @@ footer {
 .hide {
   opacity: 0;
   transition: .25s;
+  display: none;
+  animation: fade 1s;
 }
 
 .show {
   opacity: 1;
   transition: .25s;
+  animation: fade 1s;
 }
 
 /* ------------------------------------------------------------------- */
@@ -507,6 +510,7 @@ footer {
 
   #lottotable {
     font-size: 6px;
+    padding-bottom: 7em;
   }
 
   #lottotable .output {
@@ -521,7 +525,21 @@ footer {
   }
 
   #lottotable .win .output {
-  background: #212121;
+    background: #212121;
+  }
+
+  .output.match,
+  [id^="output"] {
+    border: 3px solid #212121;
+  }
+
+  .output.match_b,
+  #output6 {
+    border: 3px solid #616161;
+  }
+
+  #lottotable .win:after {
+    content: none;
   }
 }
 
@@ -569,12 +587,11 @@ footer {
 
 @media handheld, only screen and (max-height:820px) {
   #winner {
-    position: inherit;
-    margin-top: 6em;
+    top: 13em;
   }
 
   .switch {
-    margin-top: 6em;
+    margin-top: 26em;
   }
 }
 
@@ -617,4 +634,14 @@ div#splash span {
 
 div#splash img {
   margin: 0;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
