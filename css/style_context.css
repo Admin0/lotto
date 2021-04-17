@@ -25,7 +25,8 @@
 
 .context_menu {
   position: absolute;
-  min-width: 50px;  white-space: nowrap;
+  min-width: 50px;
+  white-space: nowrap;
   transform: none;
   margin-top: 0;
 }
@@ -60,8 +61,8 @@
   /* color: #000; */
 }
 
-#context_menu>div>*:not(.disabled):hover,
-.context_menu>div>*:not(.disabled):hover {
+#context_menu>div>*:not(.disabled, dt, i):hover,
+.context_menu>div>*:not(.disabled, dt, i):hover {
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -99,4 +100,16 @@
 
 #context_menu .shortcut::after {
   /* content: ")"; */
+}
+
+#context_menu input[type="checkbox"] {
+  display: none;
+}
+
+#context_menu .setting_item {
+  display: flex;
+}
+
+#context_menu .setting_item i {
+  padding: 0;
 }

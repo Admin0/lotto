@@ -1,3 +1,6 @@
+const time = {};
+time.init0 = localStorage.timer || Date.now();
+
 const is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 var data;
@@ -12,6 +15,9 @@ function dice(n, s, b) {
 }
 
 function count() {
+
+  time.start = localStorage.timer || Date.now();
+
   // console.log($('#inputnum').val());
   $('#stats').removeClass('hide').addClass('show');
   var totalbuy = $('#inputnum').val();
@@ -19,6 +25,7 @@ function count() {
   var numberSort = function(a, b) {
     return a[0] - b[0];
   };
+
   $('#lottotable').html(""); //초기화
   var win1 = 0;
   var win2 = 0;
@@ -77,9 +84,9 @@ function count() {
           match_b = 1;
         }
       }
-      // console.log("before sort: "+val);
-      val.sort(numberSort);
-      // console.log("after sort: "+val);
+      // console.log("before sort: " + val + " / " + new Date().getTime());
+      if (localStorage.no_sort == "true") val.sort(numberSort);
+      // console.log("after sort: " + val + " / " + new Date().getTime());
 
 
       for (j = 0; j < 6; j++) {
@@ -172,6 +179,7 @@ function count() {
       if (--i) {
         engine(i);
       } else {
+        console.log('stopwatch: ' + (Date.now() - time.start) + ' ms');
         is_counting = false;
       }
     }, 0)
