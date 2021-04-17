@@ -65,22 +65,6 @@ function setting() {
       console.log("설정이 저장되었습니다.");
       // toast("설정이 저장되었습니다.", "save");
 
-      if ($(this)[0] == $("#theme_color")[0] && localStorage.theme_color == "true") {
-        localStorage.theme_color__i = color.i;
-      }
-
-      // 개별 적용 (클릭 즉시 적용)
-      if (localStorage.general__dark_auto == "true") { //다크 모드 자동 적용
-        var hour = new Date().getHours();
-        if (hour >= 18 || hour < 6) {
-          localStorage.general__dark = "true";
-        } else {
-          localStorage.general__dark = "false";
-        }
-      }
-
-      // filter();
-      // columns();
       check_setting();
     }
   });
@@ -91,15 +75,7 @@ $(document).ready(function() {
   // browser_alert();
   // contextmenu();
 
-  if (localStorage.general__dark_auto == undefined || localStorage.general__dark_auto == "true") {
-    localStorage.general__dark_auto = "true";
-    var hour = new Date().getHours();
-    if (hour >= 18 || hour < 6) {
-      localStorage.general__dark = "true";
-    } else {
-      localStorage.general__dark = "false";
-    }
-  }
+  if (localStorage.no_sort == undefined || localStorage.no_sort == "true") localStorage.no_sort = "true";
 
   setting();
 
