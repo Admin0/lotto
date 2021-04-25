@@ -65,7 +65,7 @@
 
 	<p class="switch">
 		<hr style="    max-width: 300px;    margin-bottom: 3em;    border-color: #fefefe;">
-		무작위 로또 번호 생성 <input type="text" id="inputnum" value="500" size="2"> 번 <span class="key" onclick="if (is_counting == false) {is_counting = true; count();}">시작</span>
+		무작위 로또 번호 생성 <input type="text" id="inputnum" value="500" size="2" onclick="select();" onkeyup="if (event.key === 'Enter' && is_counting == false) count(); "> 번 <span class="key" onclick="if (is_counting == false) {is_counting = true; count();}">시작 (⏎)</span>
 	</p>
 
 	<hr style="    max-width: 300px;    margin: 3em auto;    border-color: #fefefe;">

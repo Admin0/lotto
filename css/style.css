@@ -333,6 +333,12 @@ h1 {
   font-weight: normal;
   font-size: 1.2em;
   text-align: center;
+  transition: .125s;
+}
+
+#inputnum:active, #inputnum:focus {
+  background: #FDD835;
+  outline: none;
 }
 
 .shadow {
