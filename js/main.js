@@ -3,6 +3,19 @@ time.init0 = localStorage.timer || Date.now();
 
 const is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+// LOAD VAL
+
+const spreadsheetId = '1ig5xL0N9TJqYL_Br5Y_vRfTaUEzgK5IkJaWgrkeU4qM'
+fetch(`https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json`)
+  .then(res => res.text())
+  .then(text => {
+    const json = JSON.parse(text.substr(47).slice(0, -2)).table.rows[0].c
+    console.log(json)
+    loadlot_2(json)
+  })
+
+// ROLLING DICE
+
 var data;
 var is_counting = false;
 
@@ -193,21 +206,21 @@ function numberWithCommas(x) {
 }
 
 function loadlot_2(a) {
-  $("#winner .lotto_round").text(a.gno = a.feed.entry[0].gsx$drwno.$t + "회");
-  $("#winner .lotto_date").text(a.gdate = a.feed.entry[0].gsx$drwnodate.$t);
+  $("#winner .lotto_round").text(a.gno = a[3].v + "회");
+  $("#winner .lotto_date").text(a.gdate = a[7].v);
 
-  $("#winner .info_Totsellamnt").text(numberWithCommas(a.money_sell = a.feed.entry[0].gsx$totsellamnt.$t));
-  $("#winner .info_Firstwinamnt").text(numberWithCommas(a.money_1win = a.feed.entry[0].gsx$firstwinamnt.$t));
-  $("#winner .info_Firstprzwnerco").text(a.many_1win = a.feed.entry[0].gsx$firstprzwnerco.$t);
+  $("#winner .info_Totsellamnt").text(numberWithCommas(a.money_sell = a[5].v));
+  $("#winner .info_Firstwinamnt").text(numberWithCommas(a.money_1win = a[8].v));
+  $("#winner .info_Firstprzwnerco").text(a.many_1win = a[11].v);
 
   a.nums = Array(7);
-  a.nums[0] = a.feed.entry[0].gsx$drwtno1.$t;
-  a.nums[1] = a.feed.entry[0].gsx$drwtno2.$t;
-  a.nums[2] = a.feed.entry[0].gsx$drwtno3.$t;
-  a.nums[3] = a.feed.entry[0].gsx$drwtno4.$t;
-  a.nums[4] = a.feed.entry[0].gsx$drwtno5.$t;
-  a.nums[5] = a.feed.entry[0].gsx$drwtno6.$t;
-  a.nums[6] = a.feed.entry[0].gsx$bnusno.$t; // bonus
+  a.nums[0] = a[18].v
+  a.nums[1] = a[16].v
+  a.nums[2] = a[17].v
+  a.nums[3] = a[10].v
+  a.nums[4] = a[12].v
+  a.nums[5] = a[9].v
+  a.nums[6] = a[13].v // bonus
   for (i = 0; i < 7; i++) {
     $('#output' + i).text(a.nums[i]);
   }
