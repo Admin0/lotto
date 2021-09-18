@@ -1,8 +1,13 @@
 var winnerYOffset;
 $(document).ready(function() {
-  winnerYOffset = $('#winner').offset().top;
+  // winnerYOffset = $('#winner').offset().top;
 });
 $(window).scroll(function() {
+
+  if (!$('#winner').hasClass('pinned')) {
+    winnerYOffset = $('#winner').offset().top;
+  }
+
   if (winnerYOffset < pageYOffset) {
     $('#winner').addClass('pinned shadow');
   } else {
