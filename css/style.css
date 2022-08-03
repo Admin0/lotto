@@ -43,7 +43,7 @@ h1 {
 }
 
 .switch {
-  margin-top: calc(50vh + 0px);
+  margin-top: calc(50vh + -450px);
   width: 100%;
 }
 
@@ -242,13 +242,18 @@ h1 {
 /*                                   #winner                                  */
 /******************************************************************************/
 #winner {
+  position: sticky;
   width: 100%;
   margin: auto;
   text-align: center;
-  position: absolute;
-  top: calc(50vh - 250px);
+  top: -1px;
+  margin-top: calc(50vh - 350px);
+  background: #fff;
+  height: 92px;
+  /* top: calc(50vh - 250px); */
   /* left: calc(50% - 300px); */
-  transition: .25s, top 0s;
+  transition: font-size .25s, transform .25s;
+  z-index: 10;
 }
 
 #winner h2 {
@@ -290,15 +295,9 @@ h1 {
 }
 
 #winner.pinned {
-  max-width: 100%;
   font-size: 12px;
-  width: 100%;
-  left: 0;
-  height: 92px;
-  position: fixed;
-  top: 0;
-  margin: 0;
-  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+  border-radius: 3px;
 }
 
 #winner.pinned h2 {
@@ -510,7 +509,7 @@ footer {
   #winner.pinned {}
 
   .switch {
-    margin-top: calc(50vh - 4em);
+    margin-top: calc(50vh - 25em);
     width: 100%;
   }
 
@@ -560,11 +559,6 @@ footer {
   #winner .info {
     margin-top: -1em;
   }
-
-  .switch {
-    margin-top: calc(50vh - 8em);
-    width: 100%;
-  }
 }
 
 @media handheld, only screen and (max-width:480px) {
@@ -580,24 +574,6 @@ footer {
 
   #winner .info {
     margin-top: -2em;
-  }
-}
-
-@media handheld, only screen and (max-width:320px) {
-
-  #stats table th:nth-of-type(2),
-  #stats table td:nth-of-type(2) {
-    display: none;
-  }
-}
-
-@media handheld, only screen and (max-height:820px) {
-  #winner {
-    top: 13em;
-  }
-
-  .switch {
-    margin-top: 26em;
   }
 }
 
