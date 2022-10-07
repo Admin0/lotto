@@ -508,11 +508,6 @@ footer {
 
   #winner.pinned {}
 
-  .switch {
-    margin-top: calc(50vh - 25em);
-    width: 100%;
-  }
-
   #lottotable {
     font-size: 6px;
     padding-bottom: 7em;
