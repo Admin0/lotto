@@ -43,7 +43,7 @@ h1 {
 }
 
 .switch {
-  margin-top: calc(50vh + -450px);
+  margin-top: 12em;
   width: 100%;
 }
 
@@ -605,7 +605,7 @@ div#splash {
 }
 
 div#splash.on {
-  z-index: 6;
+  z-index: 10;
   opacity: 1;
 }
 
